@@ -1,6 +1,5 @@
-import { createContext, FC, FunctionComponent, PropsWithChildren, useContext } from "react";
+import { createContext, FunctionComponent, PropsWithChildren, useContext } from "react";
 import React from 'react';
-import { type } from "os";
 
 type Task = {
     id: string
@@ -60,5 +59,9 @@ export const AppStateProvider: FunctionComponent<PropsWithChildren> = ({ childre
         <AppStateContext.Provider value={{ lists, getTasksByListId }}>
             {children}
         </AppStateContext.Provider>
-    )
+    );
+};
+
+export const useAppState = () => {
+    return useContext(AppStateContext)
 }
